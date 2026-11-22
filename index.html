@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIC - Rechargement Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#29AAE1',
+                            gray: '#D1D3D4',
+                            white: '#FFFFFF',
+                            black: '#0F172A'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="bg-gray-50 min-h-screen font-sans text-brand-black flex flex-col items-center py-10 px-4 sm:px-6 relative selection:bg-brand-blue selection:text-white">
+
+    <header class="w-full max-w-2xl mb-8 text-center animate-fade-in-up">
+        <div class="inline-flex items-center justify-center bg-white shadow-sm p-4 rounded-2xl border border-brand-gray/30 mb-2">
+            <svg class="w-8 h-8 text-brand-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            <h1 class="text-3xl font-bold tracking-tight text-brand-blue">CLIC</h1>
+        </div>
+        <p class="text-gray-500 text-sm">L'achat d'unités simplifié et instantané</p>
+    </header>
+
+    <main class="w-full max-w-2xl bg-brand-white rounded-3xl shadow-xl shadow-brand-blue/5 border border-brand-gray/20 p-6 sm:p-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+        
+        <!-- ÉTAPE 1: Sélection du Réseau -->
+        <div id="step1-network" class="mb-8">
+            <h2 class="text-lg font-semibold mb-4 flex items-center">
+                <span class="bg-brand-blue/10 text-brand-blue w-6 h-6 rounded-full inline-flex items-center justify-center text-xs mr-2">1</span>
+                Choisissez votre réseau
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <!-- Les boutons seront générés par JS pour garder le code propre et itératif -->
+                <button type="button" data-network="vodacom" class="network-btn flex flex-col items-center p-4 rounded-xl border-2 border-brand-gray/30 hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-all focus:outline-none">
+                    <div class="w-12 h-12 rounded-full bg-red-500 text-white flex items-center justify-center font-bold text-xl mb-2 shadow-sm">V</div>
+                    <span class="font-medium text-sm">Vodacom</span>
+                </button>
+                <button type="button" data-network="airtel" class="network-btn flex flex-col items-center p-4 rounded-xl border-2 border-brand-gray/30 hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-all focus:outline-none">
+                    <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xl mb-2 shadow-sm">A</div>
+                    <span class="font-medium text-sm">Airtel</span>
+                </button>
+                <button type="button" data-network="orange" class="network-btn flex flex-col items-center p-4 rounded-xl border-2 border-brand-gray/30 hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-all focus:outline-none">
+                    <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-xl mb-2 shadow-sm">O</div>
+                    <span class="font-medium text-sm">Orange</span>
+                </button>
+                <button type="button" data-network="africell" class="network-btn flex flex-col items-center p-4 rounded-xl border-2 border-brand-gray/30 hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-all focus:outline-none">
+                    <div class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-xl mb-2 shadow-sm">Af</div>
+                    <span class="font-medium text-sm">Africell</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 2: Type de rechargement -->
+        <div id="step2-type" class="step-container mb-8 pt-6 border-t border-brand-gray/20">
+            <h2 class="text-lg font-semibold mb-4 flex items-center">
+                <span class="bg-brand-blue/10 text-brand-blue w-6 h-6 rounded-full inline-flex items-center justify-center text-xs mr-2">2</span>
+                Type de rechargement
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button type="button" data-type="credit" class="type-btn flex-1 py-3 px-4 rounded-xl border-2 border-brand-gray/30 hover:border-brand-blue hover:bg-brand-blue/5 font-medium transition-all text-center">
+                    Crédit classique
+                </button>
+                <button type="button" data-type="internet" class="type-btn flex-1 py-3 px-4 rounded-xl border-2 border-brand-gray/30 hover:border-brand-blue hover:bg-brand-blue/5 font-medium transition-all text-center">
+                    Forfaits Internet
+                </button>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 3: Animation de chargement -->
+        <div id="step3-loader" class="hidden py-8 flex flex-col items-center justify-center">
+            <div class="relative w-12 h-12">
+                <div class="absolute inset-0 rounded-full border-4 border-brand-gray/20"></div>
+                <div class="absolute inset-0 rounded-full border-4 border-brand-blue border-t-transparent animate-spin"></div>
+            </div>
+            <p class="mt-4 text-sm text-gray-500 font-medium animate-pulse">Recherche des meilleures offres...</p>
+        </div>
+
+        <!-- ÉTAPE 4 & 5: Affichage des offres -->
+        <div id="step4-offers" class="step-container mb-8 pt-6 border-t border-brand-gray/20">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-4 gap-2 sm:gap-0">
+                <h2 class="text-lg font-semibold flex items-center">
+                    <span class="bg-brand-blue/10 text-brand-blue w-6 h-6 rounded-full inline-flex items-center justify-center text-xs mr-2">3</span>
+                    Sélectionnez une offre
+                </h2>
+                <span id="selected-network-badge" class="text-xs font-semibold px-2 py-1 rounded-md bg-gray-100 text-gray-600 uppercase tracking-wide"></span>
+            </div>
+            <!-- Grid dynamique injectée par JS -->
+            <div id="offers-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Template généré dynamiquement -->
+            </div>
+        </div>
+
+        <!-- ÉTAPE 6, 7 & 8: Numéro, Validation et Soumission -->
+        <div id="step5-checkout" class="step-container pt-6 border-t border-brand-gray/20">
+            <h2 class="text-lg font-semibold mb-4 flex items-center">
+                <span class="bg-brand-blue/10 text-brand-blue w-6 h-6 rounded-full inline-flex items-center justify-center text-xs mr-2">4</span>
+                Validation & Paiement
+            </h2>
+            
+            <form id="rechargeForm" class="space-y-6">
+                
+                <!-- Résumé de la commande -->
+                <div class="bg-brand-blue/5 p-4 rounded-xl border border-brand-blue/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+                    <div>
+                        <p class="text-sm text-gray-500">Offre sélectionnée</p>
+                        <p id="summary-title" class="font-bold text-lg text-brand-black">-</p>
+                    </div>
+                    <div class="text-left sm:text-right w-full sm:w-auto border-t sm:border-transparent border-brand-blue/10 pt-2 sm:pt-0 mt-2 sm:mt-0">
+                        <p class="text-sm text-gray-500">Montant à payer</p>
+                        <p id="summary-price" class="font-bold text-xl text-brand-blue">-</p>
+                    </div>
+                </div>
+
+                <!-- Input Numéro -->
+                <div class="relative">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Numéro à recharger</label>
+                    <div class="relative flex items-center">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="text-gray-400 font-medium">+243</span>
+                        </div>
+                        <input type="tel" id="phone" name="phone" placeholder="Ex: 0812345678" 
+                            class="block w-full pl-14 pr-10 py-3 sm:text-lg border-2 border-brand-gray/50 rounded-xl focus:ring-0 focus:border-brand-blue transition-colors bg-white outline-none"
+                            autocomplete="off">
+                        <!-- Icone de validation -->
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <svg id="phone-check-icon" class="h-6 w-6 text-green-500 hidden transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <svg id="phone-error-icon" class="h-6 w-6 text-red-500 hidden transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p id="phone-feedback" class="mt-2 text-sm text-gray-500 h-5">Veuillez entrer un numéro valide pour votre réseau.</p>
+                </div>
+
+                <!-- Bouton Recharger caché initialement -->
+                <div id="submit-container" class="opacity-0 translate-y-4 transition-all duration-500 pointer-events-none">
+                    <button type="submit" id="submit-btn" class="w-full flex items-center justify-center py-4 px-8 border border-transparent rounded-xl shadow-lg shadow-brand-blue/30 text-lg font-bold text-white bg-brand-blue hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue transition-all transform active:scale-[0.98]">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Recharger maintenant
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Status Messages -->
+        <div id="status" class="mt-6 text-center text-sm font-medium rounded-lg p-3 hidden"></div>
+        
+    </main>
+
+    <footer class="mt-8 text-center text-gray-400 text-sm">
+        <p>&copy; 2026 CLIC. Tous droits réservés.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

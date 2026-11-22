@@ -1,0 +1,17 @@
+        /* Custom scrollbar and base adjustments */
+        body { -webkit-tap-highlight-color: transparent; }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Smooth transition for step container */
+        .step-container {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .step-container.active {
+            max-height: 1000px; /* Arbitrary large number for CSS transition */
+            opacity: 1;
+            overflow: visible;
+        }
