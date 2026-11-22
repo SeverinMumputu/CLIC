@@ -310,7 +310,7 @@
                 try {
 
             const response = await fetch(
-                "http://10.13.151.135:3000/api/orders",
+                "https://clic-omega.vercel.app:3000/api/orders",
                 {
                     method: "POST",
                     headers: {
